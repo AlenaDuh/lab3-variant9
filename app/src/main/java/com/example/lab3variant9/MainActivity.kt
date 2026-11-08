@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 
 
 
-}@Preview(showBackground = true)
+}
 @Composable
 fun DemoScreen(modifier: Modifier = Modifier) {
     // Состояния (переменные) для хранения ввода и результата
@@ -85,6 +85,13 @@ fun DemoScreen(modifier: Modifier = Modifier) {
             fontSize = 24.sp,
             color = MaterialTheme.colorScheme.primary
         )
+    }
+}
+@Preview(showBackground = true)
+@Composable
+fun DemoScreenPreview() {
+    Lab3Variant9Theme {
+        DemoScreen()
     }
 }
 
