@@ -12,6 +12,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -64,10 +65,18 @@ fun DemoScreen(modifier: Modifier = Modifier) {
 
         // Кнопка OK
         Button(
-            onClick = { /* Логика будет на следующем шаге */ },
+            onClick = {
+                val char = inputText.firstOrNull()
+                resultText = when {
+                    char == null -> "Поле пустое!"
+                    char.isDigit() -> "Это цифра!"
+                    char == '&' || char == '#' || char == '<' -> "Это спец символ!"
+                    else -> "Непредусмотренный вариант!"
+                }
+            },
             modifier = Modifier.padding(vertical = 16.dp)
         ) {
-            Text1("OK")
+            Text("OK")
         }
 
         // Вывод результата
